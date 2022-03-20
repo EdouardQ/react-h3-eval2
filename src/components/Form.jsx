@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { RecapContext } from "../context/recapContext";
+import { ProfilContext } from "../context/profilContext";
+import { CartContext } from "../context/cartContext";
 
 export const Form = () => {
   const [form, setForm] = useState({
@@ -9,16 +10,14 @@ export const Form = () => {
     address: "",
     commentary: "",
   });
-  const { recap } = useContext(RecapContext);
+  const profilCont = useContext(ProfilContext);
+  const cartCont = useContext(CartContext);
   const navigate = useNavigate();
-
-  console.log(recap);
 
   function handleChange(e) {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   }
-
   function handleSubmit(e) {
     const { name, email, address, commentary } = form;
     if (
@@ -27,10 +26,8 @@ export const Form = () => {
       address.length > 0 &&
       commentary.length > 0
     ) {
-      e.preventDefault();
-      console.log(form);
-      recap.push(...form);
-
+      profilCont.setProfil({ ...form, ...cartCont.cart });
+      cartCont.setCart([]);
       navigate("/validation");
     } else {
       e.preventDefault();

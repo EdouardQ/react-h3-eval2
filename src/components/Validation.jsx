@@ -1,12 +1,8 @@
-import { RecapContext } from "../context/recapContext";
-import { CartContext } from "../context/cartContext";
+import { ProfilContext } from "../context/profilContext";
 import { useContext, useState } from "react";
 
 export const Validation = () => {
-  const recapCont = useContext(RecapContext);
-  const cartCont = useContext(CartContext);
+  const { profil } = useContext(ProfilContext);
 
-  console.log(recapCont.recap, cartCont.cart);
-
-  return <></>;
+  return <section></section>;
 };
