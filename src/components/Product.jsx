@@ -13,7 +13,9 @@ export const Product = (props) => {
           Ajouter au panier
         </button>
         <span className="col" />
-        <div className="col">{props.product.price}€</div>
+        <div className="col">
+          <b className="price">{props.product.price}€</b>
+        </div>
       </div>
     </div>
   );

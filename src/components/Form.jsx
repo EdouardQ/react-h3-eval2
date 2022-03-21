@@ -23,14 +23,17 @@ export const Form = () => {
     if (
       name.length > 0 &&
       email.length > 0 &&
-      address.length > 0 &&
-      commentary.length > 0
+      email.includes("@") &&
+      email.includes(".") &&
+      address.length > 0
     ) {
       profilCont.setProfil({ ...form });
       navigate("/validation");
     } else {
       e.preventDefault();
-      alert("veuillez compléter les champs ");
+      alert(
+        "veuillez compléter les champs et/ou veillez saisir une adresse email valide."
+      );
     }
   }
 
