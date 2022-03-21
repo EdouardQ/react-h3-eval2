@@ -18,7 +18,7 @@ export const Home = () => {
   }
 
   return (
-    <section className="row">
+    <section className="row articles">
       {products.map((product, index) => {
         return (
           <Product product={product} key={index} handleClick={handleClick} />

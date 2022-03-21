@@ -23,13 +23,14 @@ export const Checkout = () => {
   }
 
   return (
-    <section>
-      <table className="table table-striped w-50">
+    <section className="table_align">
+      <br></br>
+      <table className="table table-striped">
         <thead>
           <tr>
-            <th>Nom</th>
-            <th>Prix</th>
-            <th>Action</th>
+            <th className="w-50">Nom</th>
+            <th className="w-25">Prix</th>
+            <th className="w-25">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -43,7 +44,9 @@ export const Checkout = () => {
           <td>{total()}€</td>
         </tr>
       </table>
+      <br></br>
       <hr />
+      <br></br>
       <Form />
     </section>
   );

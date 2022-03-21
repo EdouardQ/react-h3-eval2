@@ -26,8 +26,7 @@ export const Form = () => {
       address.length > 0 &&
       commentary.length > 0
     ) {
-      profilCont.setProfil({ ...form, ...cartCont.cart });
-      cartCont.setCart([]);
+      profilCont.setProfil({ ...form });
       navigate("/validation");
     } else {
       e.preventDefault();
@@ -36,7 +35,7 @@ export const Form = () => {
   }
 
   return (
-    <div className="col-4">
+    <div>
       <h2>Vos informations</h2>
       <form onSubmit={handleSubmit}>
         <input
