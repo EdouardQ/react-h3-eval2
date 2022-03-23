@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export const Product = (props) => {
   return (
     <div className="card col-3">

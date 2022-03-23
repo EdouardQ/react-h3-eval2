@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ProfilContext } from "../context/profilContext";
 import { CartContext } from "../context/cartContext";
+import { CartValidationContext } from "../context/cartValidationContext";
 
 export const Form = () => {
   const [form, setForm] = useState({
@@ -12,6 +13,7 @@ export const Form = () => {
   });
   const profilCont = useContext(ProfilContext);
   const cartCont = useContext(CartContext);
+  const cartValidationCont = useContext(CartValidationContext);
   const navigate = useNavigate();
 
   function handleChange(e) {
@@ -19,7 +21,7 @@ export const Form = () => {
     setForm({ ...form, [name]: value });
   }
   function handleSubmit(e) {
-    const { name, email, address, commentary } = form;
+    const { name, email, address } = form;
     if (
       name.length > 0 &&
       email.length > 0 &&
@@ -28,7 +30,13 @@ export const Form = () => {
       address.length > 0
     ) {
       profilCont.setProfil({ ...form });
-      navigate("/validation");
+      cartCont.cart.map((cart) => {
+        cartValidationCont.cartValidation.push(...cart);
+      });
+      //cartCont.setCart([]);
+      console.log(cartValidationCont.cartValidation, cartCont.cart);
+      //navigate("/validation");
+      e.preventDefault();
     } else {
       e.preventDefault();
       alert(
