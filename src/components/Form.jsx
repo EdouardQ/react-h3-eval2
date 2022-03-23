@@ -19,7 +19,7 @@ export const Form = () => {
     setForm({ ...form, [name]: value });
   }
   function handleSubmit(e) {
-    const { name, email, address, commentary } = form;
+    const { name, email, address } = form;
     if (
       name.length > 0 &&
       email.length > 0 &&
